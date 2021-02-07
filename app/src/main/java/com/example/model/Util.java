@@ -1,13 +1,18 @@
 package com.example.model;
 
 import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Base64;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+
+import java.io.ByteArrayOutputStream;
 
 public class Util {
 
@@ -112,6 +117,39 @@ public class Util {
             });
 
         }
+    }
+
+    public static Bitmap decodeSampledBitmapFromResource(String resId,
+                                                         int reqWidth, int reqHeight) {
+
+        // First decode with inJustDecodeBounds=true to check dimensions
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        options.inDither = false;                     //Disable Dithering mode
+        options.inPurgeable = true;                   //Tell to gc that whether it needs free memory, the Bitmap can be cleared
+        options.inInputShareable = true;              //Which kind of reference will be used to recover the Bitmap data after being clear, when it will be used in the future
+        options.inTempStorage = new byte[32 * 1024];
+        BitmapFactory.decodeFile(resId, options);
+
+        if (reqHeight == 0 && reqWidth == 0) {
+            options.inSampleSize = 1;
+        }
+
+        return BitmapFactory.decodeFile(resId, options);
+    }
+
+    public static String imageToBase64(Bitmap bitmap){
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream .toByteArray();
+        String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
+        return encoded;
+    }
+
+    public static Bitmap base64ToBitmap(String base64){
+        byte[] decodedString = Base64.decode(base64, Base64.DEFAULT);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        return bitmap;
     }
 }
 

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "147620374049",
+    "project_id": "cadastro-de-usuarios-f3663",
+    "storage_bucket": "cadastro-de-usuarios-f3663.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147620374049:android:da213ac86090060516e560",
+        "android_client_info": {
+          "package_name": "com.example.cadastrousuarios"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147620374049-7efkc95tah7g42n5udl8pj5ur70ma8qa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cadastrousuarios",
+            "certificate_hash": "fc5b35e6e9253461d18f99d6afe151d8dac8023f"
+          }
+        },
+        {
+          "client_id": "147620374049-ns9t3da2cgefmsbhdha249luj1d4u3bg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAItf97pQu2T4Bby4I_QeqSm75GoeEMRSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "147620374049-ns9t3da2cgefmsbhdha249luj1d4u3bg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -11,16 +11,10 @@ import java.util.List;
 
 import com.example.webservice.RestUtil;
 import com.example.webservice.configuracoes.Configuracoes;
-import com.example.webservice.model.MensagemResposta;
-import com.example.webservice.model.RespostaUsuario;
 import com.example.webservice.util.RequestService;
 import com.example.webservice.util.Service;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
-
-import retrofit2.Call;
-import retrofit2.http.GET;
 
 public class UsuarioService {
 
@@ -38,7 +32,8 @@ public class UsuarioService {
 
 
     String PATH_CRIAR_OU_ATUALIZAR = "/usuarios";
-    public void criarOuAtualizar(final Usuario entity, final Service.ServiceListener listener){
+
+    public void criarOuAtualizar(final Usuario entity, final Service.ServiceListener listener) {
         requestService = new RequestService();
         handler = new Handler();
         new Thread(new Runnable() {
@@ -47,23 +42,23 @@ public class UsuarioService {
                 String json = RestUtil.objetoParaJson(entity);
                 String url = Configuracoes.SERVER_URL + Configuracoes.PATH_API + PATH_CRIAR_OU_ATUALIZAR;
                 String response = requestService.post(url, json);
-                try{
-                    if (response != null){
+                try {
+                    if (response != null) {
                         // Decodifica caracteres
-                        response = URLDecoder.decode(response,"UTF-8");
+                        response = URLDecoder.decode(response, "UTF-8");
 
-                        final Usuario user = (Usuario)RestUtil.jsonParaObjeto(response, Usuario.class);
-                        if (user != null){
-                            handler.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    listener.onSucess(user);
-                                }
-                            });
-                            return;
-                        }
+                        //final Usuario user = (Usuario)RestUtil.jsonParaObjeto(response, Usuario.class);
+                        //if (user != null){
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                listener.onSucess(null);
+                            }
+                        });
+                        return;
+                        //}
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
@@ -78,6 +73,7 @@ public class UsuarioService {
     }
 
     String PATH_LISTAR_USUARIOS = "/usuarios/listar";
+
     public void todos(final Service.ServiceListener listener) {
         requestService = new RequestService();
         handler = new Handler();
@@ -88,7 +84,8 @@ public class UsuarioService {
                 try {
                     if (response != null) {
                         Gson gson = new Gson();
-                        Type type = new TypeToken<ArrayList<Usuario>>(){}.getType();
+                        Type type = new TypeToken<ArrayList<Usuario>>() {
+                        }.getType();
                         List<Usuario> usuariosList = gson.fromJson(response, type);
 
                         if (usuariosList != null) {
@@ -110,4 +107,5 @@ public class UsuarioService {
             }
         }).start();
     }
+
 }

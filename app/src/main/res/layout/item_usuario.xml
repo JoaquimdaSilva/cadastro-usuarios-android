@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/img_usuario"
+            android:id="@+id/imgAvatarList"
             android:layout_width="60dp"
             android:layout_height="70dp"
             android:layout_marginStart="16dp"
@@ -35,7 +35,7 @@
             android:layout_marginTop="8dp"
             android:text="Nome Usuario"
             android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/img_usuario"
+            app:layout_constraintStart_toEndOf="@+id/imgAvatarList"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <TextView
@@ -55,8 +55,8 @@
             android:layout_marginStart="16dp"
             android:text="Código:"
             android:textColor="#000000"
-            app:layout_constraintStart_toEndOf="@+id/img_usuario"
-            app:layout_constraintTop_toTopOf="@+id/img_usuario" />
+            app:layout_constraintStart_toEndOf="@+id/imgAvatarList"
+            app:layout_constraintTop_toTopOf="@+id/imgAvatarList" />
 
         <TextView
             android:id="@+id/codigo_usuario"

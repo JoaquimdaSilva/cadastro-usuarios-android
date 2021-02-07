@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.model.Util;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.example.cadastrousuarios.R;
 import com.example.model.Usuario;
@@ -60,17 +62,14 @@ public class UsuarioAdapter extends BaseAdapter {
         txtCodigo.setText(u.getId().toString());
         TextView txtData = v.findViewById(R.id.data_nascimento);
         txtData.setText(u.getDataNascimento());
+        ImageView imgAvatar = v.findViewById(R.id.imgAvatarList);
 
-        // Carrega a imagem do estabelecimento
-        //CircularImageView circularImageView = (CircularImageView) v.findViewById(R.id.imgEstab);
-        //circularImageView.setShadowRadius((float) 0.1);
-        /*circularImageView.setImageResource(R.drawable.img_perfil_estabelecimento);
+
         if(u.getAvatar() != null && u.getAvatar().length() > 0){
-            imageLoader.displayImage(Configuracoes.SERVER_URL+Configuracoes.PATH_UPLOADS+estabelecimento.getImagem(), circularImageView );
-        }else{
-            circularImageView.setImageResource(R.drawable.img_perfil_estabelecimento);
-        }*/
-
+            imgAvatar.setImageBitmap(Util.base64ToBitmap(u.getAvatar()));
+        } else {
+            imgAvatar.setImageResource(R.drawable.avatar);
+        }
 
         return v;
     }
