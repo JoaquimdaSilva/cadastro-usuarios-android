@@ -22,7 +22,7 @@ public class SplashController extends AppCompatActivity {
             public void run() {
                 abreListagemUsuarios();
             }
-        }, 2500);
+        }, 3000);
     }
 
     private void abreListagemUsuarios() {

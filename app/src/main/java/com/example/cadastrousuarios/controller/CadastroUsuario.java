@@ -167,7 +167,13 @@ public class CadastroUsuario extends AppCompatActivity {
             return validado = false;
         }
 
-        return validado = true;
+        validado = true;
+
+        if (validado == true) {
+            this.salvarUsuario();
+        }
+
+        return validado;
     }
 
 
@@ -193,6 +199,7 @@ public class CadastroUsuario extends AppCompatActivity {
         };
 
         imgUsuario = findViewById(R.id.img_user);
+        imgUsuario.setImageDrawable(getResources().getDrawable(R.drawable.avatar));
         nome = findViewById(R.id.edt_nome);
         dataNascimento = findViewById(R.id.editTextDate);
 
@@ -212,7 +219,7 @@ public class CadastroUsuario extends AppCompatActivity {
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                salvarUsuario();
+                validaCampos();
             }
         });
 

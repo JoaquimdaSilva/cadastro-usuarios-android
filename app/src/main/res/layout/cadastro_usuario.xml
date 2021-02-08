@@ -24,7 +24,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="450dp">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/textView3"
@@ -71,7 +71,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     android:lines="2"
-                    android:text="Data de náscimento:"
+                    android:text="Data de Nascimento:"
                     android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -91,14 +91,14 @@
                     android:id="@+id/editTextDate"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    android:layout_marginStart="8dp"
                     android:background="@null"
-                    android:inputType="textCapWords"
                     android:ems="10"
+                    android:inputType="textCapWords"
                     app:layout_constraintBottom_toBottomOf="@+id/textView6"
                     app:layout_constraintEnd_toEndOf="@+id/edt_nome"
                     app:layout_constraintStart_toEndOf="@+id/textView6"
                     app:layout_constraintTop_toTopOf="@+id/textView6" />
-
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -116,16 +116,19 @@
                     android:id="@+id/bt_salvar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="32dp"
+                    android:background="@null"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:background="@null"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
                     app:srcCompat="@drawable/btn_salvar" />
 
                 <ImageView
                     android:id="@+id/img_user"
-                    android:layout_width="60dp"
-                    android:layout_height="70dp"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     app:layout_constraintStart_toStartOf="parent"

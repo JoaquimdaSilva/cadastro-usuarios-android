@@ -39,6 +39,7 @@ public class ListaUsuarios extends AppCompatActivity implements AdapterView.OnIt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_usuarios);
+        getSupportActionBar().setTitle("Lista de usuários");
 
         mQueue = Volley.newRequestQueue(this);
         initComponentes();
